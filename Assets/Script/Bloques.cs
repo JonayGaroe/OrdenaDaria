@@ -54,6 +54,8 @@ public class Bloques : MonoBehaviour
             bloquesText.text = bloquesCount.ToString();
             bloquesText2.text = bloquesCount.ToString();
 
+            
+
             // bloquesText.text = bloquesCount.ToString();
             // other.gameObject.SetActive(false);
             //  AudioSource.PlayClipAtPoint(Bloquefx, transform.position);
