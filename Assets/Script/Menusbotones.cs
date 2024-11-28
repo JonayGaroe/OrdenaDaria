@@ -32,6 +32,8 @@ public class Menusbotones : MonoBehaviour
     GameObject Bolaaa;
     [SerializeField]
     GameObject timesss;
+    [SerializeField]
+    GameObject Sonido;
 
     // Start is called before the first frame update
     void Start()
@@ -68,12 +70,26 @@ public class Menusbotones : MonoBehaviour
         antesNiveles.SetActive(false);
         botonControles.SetActive(false);
         Bolaaa.SetActive(false);
+        Sonido.SetActive(false);
+
     }
 
     public void nivelear()
     {
 
         antesNiveles.SetActive(true);
+        menuPrincipal.SetActive(false);
+
+
+
+
+
+    }
+
+    public void OpcionSonido()
+    {
+
+        Sonido.SetActive(true);
         menuPrincipal.SetActive(false);
 
 
