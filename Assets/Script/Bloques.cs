@@ -7,9 +7,10 @@ using Unity.Physics.Authoring;
 
 public class Bloques : MonoBehaviour
 {
-
     public int bloquesCount = 37;
     public TextMeshProUGUI bloquesText;
+    public TextMeshProUGUI bloquesText2;
+
     public AudioClip Bloquefx;
 
 
@@ -23,14 +24,16 @@ public class Bloques : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
+     
 
     }
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-                 //Asegurarnos de que la colisión es con un objeto con el tag correcto
+         //Asegurarnos de que la colisión es con un objeto con el tag correcto
         //if (other.CompareTag("bloquesss"))
+
         if (other.gameObject.CompareTag("bloquesss"))
         {
                     // Verificar si el tag coincide antes de hacer el resto de la lógica
@@ -39,22 +42,26 @@ public class Bloques : MonoBehaviour
             bloquesCount = bloquesCount - 1;
             Debug.Log("He tocado el Bloque " + bloquesCount);
             Destroy(other.gameObject);
-
-            //other.gameObject.SetActive(false);
+       
 
         }
+
+
         if (other.gameObject.tag.Contains("bloquesss"))
         {
 
             Destroy(other.gameObject);
             bloquesText.text = bloquesCount.ToString();
-           // other.gameObject.SetActive(false);
-            AudioSource.PlayClipAtPoint(Bloquefx, transform.position);
+            bloquesText2.text = bloquesCount.ToString();
+
+            // bloquesText.text = bloquesCount.ToString();
+            // other.gameObject.SetActive(false);
+            //  AudioSource.PlayClipAtPoint(Bloquefx, transform.position);
 
         }
 
-    
-   
+
+
 
     }
     

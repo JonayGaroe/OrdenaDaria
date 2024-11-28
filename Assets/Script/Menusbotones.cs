@@ -1,4 +1,4 @@
-using System.Collections;
+    using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
@@ -24,6 +24,15 @@ public class Menusbotones : MonoBehaviour
     [SerializeField] 
     GameObject menuPrincipal;
 
+    [SerializeField]
+    GameObject botonControles;
+  //  [SerializeField]
+   // GameObject canvasModos;
+    [SerializeField]
+    GameObject Bolaaa;
+    [SerializeField]
+    GameObject timesss;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -48,14 +57,17 @@ public class Menusbotones : MonoBehaviour
     {
 
         menuPrincipal.SetActive(false);
-
-
+       // canvasModos.SetActive(true);
+        Bolaaa.SetActive(true);
+        timesss.SetActive(true);
 
     }
     public void MenuPrincipal()
     {
         menuPrincipal.SetActive(true);
         antesNiveles.SetActive(false);
+        botonControles.SetActive(false);
+
     }
 
     public void nivelear()
@@ -69,16 +81,27 @@ public class Menusbotones : MonoBehaviour
 
 
     }
-
-    public void Beforeniveles()
+    public void Ayuda()
     {
 
-        
-      //  menuPrincipal.SetActive(false);
-  
+
+        botonControles.SetActive(true);
+
+
+
 
 
     }
+
+    public void quitarMenu()
+    {
+        menuPrincipal.SetActive(false);
+      
+
+    }
+
+
+
 
 
 
