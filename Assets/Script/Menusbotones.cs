@@ -67,7 +67,7 @@ public class Menusbotones : MonoBehaviour
         menuPrincipal.SetActive(true);
         antesNiveles.SetActive(false);
         botonControles.SetActive(false);
-
+        Bolaaa.SetActive(false);
     }
 
     public void nivelear()
