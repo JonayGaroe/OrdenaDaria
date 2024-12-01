@@ -10,6 +10,7 @@ TagManager:
   - Pared
   - Paddle
   - Palo
+  - HorizontalBajo
   layers:
   - Default
   - TransparentFX

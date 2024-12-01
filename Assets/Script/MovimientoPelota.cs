@@ -9,7 +9,7 @@ public class MovimientoPelota : MonoBehaviour
     // Vector3 movimientoHorizontal = Vector3.right;
     // Vector3 movimientoVertical = Vector3 .up;
     //  Rigidbody2D rb;
-
+    public MuevetePalo muevetePalo;
 
         [SerializeField] 
     private float initialVelocity = 4f;
@@ -25,6 +25,8 @@ public class MovimientoPelota : MonoBehaviour
 
         // rb = GetComponent<Rigidbody2D>();
         Launch();
+
+        
     }
     
    private void Launch()
@@ -57,5 +59,25 @@ public class MovimientoPelota : MonoBehaviour
   
     */
     // Faltaria añadir en continuos en collision detec rigidbody
-    
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        
+        float posicionPaloX = muevetePalo.gameObject.transform.position.x;
+        if (collision.gameObject.tag == "HorizontalBajo")
+        {
+
+            ballRb.MovePosition(new Vector3(posicionPaloX, 155f, 0f));
+            //gameObject.transform.position = new Vector3(posicionPaloX, 155f, 0f) ;
+            float xVelocity = 1f;
+            float yVelocity = 1f;
+            ballRb.velocity = new Vector2(xVelocity, yVelocity) * initialVelocity;
+        }
+
+
+
+    }
+
+
+
 }

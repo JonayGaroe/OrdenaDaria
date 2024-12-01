@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using System.Threading;
+using UnityEngine.SceneManagement;
 public class Menusbotones : MonoBehaviour
 {
     [SerializeField]
@@ -34,13 +35,16 @@ public class Menusbotones : MonoBehaviour
     GameObject timesss;
     [SerializeField]
     GameObject Sonido;
-
+    [SerializeField]
+    GameObject ganar;
+    [SerializeField]
+    GameObject canvasfinal;
     // Start is called before the first frame update
     void Start()
     {
-        
 
 
+        Time.timeScale = 0;
 
 
 
@@ -57,19 +61,20 @@ public class Menusbotones : MonoBehaviour
     }
     public void startniveles()
     {
-
+        Time.timeScale = 1;
         menuPrincipal.SetActive(false);
        // canvasModos.SetActive(true);
-        Bolaaa.SetActive(true);
+       // Bolaaa.SetActive(true);
         timesss.SetActive(true);
-
+        
     }
     public void MenuPrincipal()
     {
+        Time.timeScale = 0;
         menuPrincipal.SetActive(true);
         antesNiveles.SetActive(false);
         botonControles.SetActive(false);
-        Bolaaa.SetActive(false);
+        //Bolaaa.SetActive(false);
         Sonido.SetActive(false);
 
     }
@@ -116,9 +121,22 @@ public class Menusbotones : MonoBehaviour
 
     }
 
+    public void ReintentarenAleatorio()
+    {
+        ganar.SetActive(false);
+        canvasfinal.SetActive(false);
+        SceneManager.LoadScene("Aleatorio"); 
+        
+    }
 
 
+    public void reintentarotracosa()
+    {
+        ganar.SetActive(false);
+        canvasfinal.SetActive(false);
+        SceneManager.LoadScene("otracosaa");
 
+    }
 
 
 }

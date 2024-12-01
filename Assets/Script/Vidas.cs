@@ -30,7 +30,7 @@ public class VidaManager : MonoBehaviour
 
 
             vidas--; // Resta una vida
-
+            
             Debug.Log("Vidas restantes: " + vidas);
 
 

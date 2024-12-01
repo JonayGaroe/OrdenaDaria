@@ -6,18 +6,21 @@ using TMPro;
 
 public class Bloques : MonoBehaviour
 {
-    public int bloquesCount = 37;
+    public int bloquesCount = 30;
     public TextMeshProUGUI bloquesText;
     public TextMeshProUGUI bloquesText2;
 
     public AudioClip Bloquefx;
-
+    [SerializeField]
+    GameObject CanvasGanar;
+ //   [SerializeField]
+//    GameObject Bola8;
 
     // Start is called before the first frame update
     void Start()
     {
-        bloquesCount = 37;
-
+        bloquesCount = 30;
+   
     }
 
     // Update is called once per frame
@@ -35,18 +38,24 @@ public class Bloques : MonoBehaviour
 
         if (other.gameObject.CompareTag("bloquesss"))
         {
-                    // Verificar si el tag coincide antes de hacer el resto de la lógica
-                    // Destruir el objeto con el tag "bloquesss"
-
-            bloquesCount = bloquesCount - 1;
-            Debug.Log("He tocado el Bloque " + bloquesCount);
-            Destroy(other.gameObject);
-       
-
+            // Verificar si el tag coincide antes de hacer el resto de la lógica
+            // Destruir el objeto con el tag "bloquesss"
+            other.collider.GetComponent<VidasBloques>().bloqueVida -= 1;
+            if(other.collider.GetComponent<VidasBloques>().bloqueVida <= 0)
+ 
+            {
+                bloquesCount = bloquesCount - 1;
+             Debug.Log("He tocado el Bloque " + bloquesCount);
+             //destruir con tiempo
+             //Destroy(other.gameObject,5f);
+             Destroy(other.gameObject);
+             bloquesText.text = bloquesCount.ToString();
+             bloquesText2.text = bloquesCount.ToString();
+            }
         }
 
 
-        if (other.gameObject.tag.Contains("bloquesss"))
+    /*    if (other.gameObject.tag.Contains("bloquesss"))
         {
 
             Destroy(other.gameObject);
@@ -58,12 +67,33 @@ public class Bloques : MonoBehaviour
             // bloquesText.text = bloquesCount.ToString();
             // other.gameObject.SetActive(false);
             //  AudioSource.PlayClipAtPoint(Bloquefx, transform.position);
+           
+
+
+
+
+        }
+    */
+       if(bloquesCount <= 0)
+       {
+           
+
+            CanvasGanar.SetActive(true);
+            //Time.timeScale = 0;
+
+        }
+        /*
+        if(CanvasGanar.activeSelf)
+        {
+
+
+            // Bola8.SetActive(false);
+            Time.timeScale = 0f;
 
         }
 
 
-
-
+        */
     }
     
 }
