@@ -4090,7 +4090,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52c023e4ea97d8e439a1f165750a5162, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vidas: 3
+  vidas: 200
   vidasText: {fileID: 827708081}
   pantallaFinal: {fileID: 659453076}
   textLabelTime: {fileID: 1398798661}
@@ -10156,7 +10156,7 @@ TrailRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Time: 5
-  m_PreviewTimeScale: 1
+  m_PreviewTimeScale: 0.1
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1

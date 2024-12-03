@@ -45,12 +45,26 @@ public class Bloques : MonoBehaviour
  
             {
                 bloquesCount = bloquesCount - 1;
+
              Debug.Log("He tocado el Bloque " + bloquesCount);
              //destruir con tiempo
              //Destroy(other.gameObject,5f);
              Destroy(other.gameObject);
              bloquesText.text = bloquesCount.ToString();
              bloquesText2.text = bloquesCount.ToString();
+
+                if (bloquesCount <= 0)
+                {
+                    Debug.Log("FUNCCIONA");
+                    MapaAleatorio.instance.GenerarMapa();
+
+
+
+
+                }
+
+
+
             }
         }
 

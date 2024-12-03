@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MapaAleatorio : MonoBehaviour
 {
+    public static MapaAleatorio instance;
     public GameObject[] prefabs; // Array para almacenar los diferentes prefabs (por ejemplo, suelos, paredes, etc.)
     public int anchoMapaMin = -820; // Ancho del mapa
     public int anchoMapaMax = 562; // Ancho del mapa
@@ -14,7 +15,7 @@ public class MapaAleatorio : MonoBehaviour
     public float distanciaEntreObjetosY = 50f; // Distancia entre cada prefab en el mapa
     public int filas = 6;
     public int columnas = 10;
-  
+    
     
     void Start()
     {
@@ -24,7 +25,7 @@ public class MapaAleatorio : MonoBehaviour
     }
 
     // Método para generar el mapa aleatorio
-    void GenerarMapa()
+   public void GenerarMapa()
     {
         for (int fila = 0; fila < filas; fila++)
         {
