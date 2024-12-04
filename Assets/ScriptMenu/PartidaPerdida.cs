@@ -14,9 +14,13 @@ public class PartidaPerdida : MonoBehaviour
 
     [SerializeField]
     TextMeshProUGUI textLabelTime;
+
+    [SerializeField]
+    TextMeshProUGUI textLTime;
     [SerializeField]
     TextMeshProUGUI ganar;
-
+      [SerializeField]
+    GameObject ganarla;
     float tiempoDePartida = 0.0f;
     bool estaJugando = true;
 
@@ -26,15 +30,28 @@ public class PartidaPerdida : MonoBehaviour
     private void Update()
     {
         vidasText.text ="" + vidas;
-        tiempoDePartida = tiempoDePartida + Time.deltaTime;
-        ganar.text = tiempoDePartida.ToString();
+    
         if (estaJugando == true)
         {
+
             tiempoDePartida = tiempoDePartida + Time.deltaTime;
             textLabelTime.text = tiempoDePartida.ToString();
+            estaJugando = false;
+            // ganar.text = tiempoDePartida.ToString();
+
+
+
+            
 
         }
+  
+        
+
+
+
+
     }
+
 
     private void OnTriggerEnter2D(Collider2D other)
 
@@ -48,11 +65,11 @@ public class PartidaPerdida : MonoBehaviour
             if (vidas <= 0)
             {
                 Time.timeScale = 0;
-                float minutos = Mathf.FloorToInt(tiempoDePartida / 60F);
+              float minutos = Mathf.FloorToInt(tiempoDePartida / 60F);
               float segundos = Mathf.FloorToInt(tiempoDePartida % 60F);
 
 
-              Debug.Log("Jugador llego a la meta");
+              Debug.Log("Has Perdido");
               pantallaFinal.SetActive(true);
               other.GetComponent<Movimiento>().enabled = false;
               estaJugando = false;

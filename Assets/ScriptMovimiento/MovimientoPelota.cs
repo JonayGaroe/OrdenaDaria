@@ -24,11 +24,29 @@ public class MovimientoPelota : MonoBehaviour
         ballRb = GetComponent<Rigidbody2D>();
 
         // rb = GetComponent<Rigidbody2D>();
-        Launch();
+        //Launch();
 
         
     }
-    
+    void Update()
+    {
+
+       if (Input.GetKeyDown(KeyCode.Space))
+       {
+
+
+            Launch();
+            transform.parent = null;
+
+
+       }
+
+
+
+    }
+
+
+
    private void Launch()
     {
         float xVelocity = Random.Range(0, 2) == 0 ? 1 : -1;
@@ -74,7 +92,7 @@ public class MovimientoPelota : MonoBehaviour
             ballRb.velocity = new Vector2(xVelocity, yVelocity) * initialVelocity;
         }
 
-
+        //gameObject.tranform.parent = Palo.tranform;
 
     }
 

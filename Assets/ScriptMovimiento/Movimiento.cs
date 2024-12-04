@@ -7,18 +7,19 @@ public class Movimiento : MonoBehaviour
 {
 
     // en otro script
-   // public float movementEjeX;
+    // public float movementEjeX;
     //public float fastmovement = 3f;
-   // public float movementEjeY;
-   // public float movementEjeZ;
+    // public float movementEjeY;
+    // public float movementEjeZ;
     //SONIDO
 
-
+    float tiempoDePartida = 0.0f;
     public int bloquesCount = 37;
     public TextMeshProUGUI bloquesFinalText;
     public TextMeshProUGUI bloquesText;
-  //  public AudioClip Bloquefx;
-
+    //  public AudioClip Bloquefx;
+    [SerializeField]
+    TextMeshProUGUI ganar;
 
 
     // Start is called before the first frame update
@@ -34,14 +35,31 @@ public class Movimiento : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        tiempoDePartida = tiempoDePartida + Time.deltaTime;
+        ganar.text = tiempoDePartida.ToString();
 
 
-       // Vector3 movement = new Vector3();
 
-      //  movementEjeX = Input.GetAxis("Horizontal") * Time.deltaTime * fastmovement;
-       // transform.Translate(movementEjeX, movementEjeY, movementEjeZ);
+        if (bloquesCount == 0)
+        { 
 
-     
+            Time.timeScale = 0;
+
+            float minutos = Mathf.FloorToInt(tiempoDePartida / 60F);
+            float segundos = Mathf.FloorToInt(tiempoDePartida % 60F);
+            ganar.text = string.Format("{0:00}:{1:00}", minutos, segundos);
+        
+
+
+        }
+
+
+        // Vector3 movement = new Vector3();
+
+        //  movementEjeX = Input.GetAxis("Horizontal") * Time.deltaTime * fastmovement;
+        // transform.Translate(movementEjeX, movementEjeY, movementEjeZ);
+
+
         //Debug.Log("Estoy tocando Boton");
 
     }

@@ -39,6 +39,8 @@ public class Menusbotones : MonoBehaviour
     GameObject ganar;
     [SerializeField]
     GameObject canvasfinal;
+
+    bool isPause = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -54,7 +56,37 @@ public class Menusbotones : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+
+            isPause = !isPause;
+
+            if (isPause == true)
+            {
+
+                Time.timeScale = 0;
+                menuPrincipal.SetActive(true);
+
+            }
+
+            if (isPause == false)
+            {
+
+                Time.timeScale = 1;
+                menuPrincipal.SetActive(false);
+
+
+
+            }
+
+
+
+        }
+
+
+
+
 
 
 
@@ -137,6 +169,12 @@ public class Menusbotones : MonoBehaviour
         SceneManager.LoadScene("otracosaa");
 
     }
+
+
+
+
+
+
 
 
 }

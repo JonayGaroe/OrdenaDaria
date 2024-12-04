@@ -9,7 +9,7 @@ public class Bloques : MonoBehaviour
     public int bloquesCount = 30;
     public TextMeshProUGUI bloquesText;
     public TextMeshProUGUI bloquesText2;
-
+    public int  bloquesPuntos = 20;
     public AudioClip Bloquefx;
     [SerializeField]
     GameObject CanvasGanar;
