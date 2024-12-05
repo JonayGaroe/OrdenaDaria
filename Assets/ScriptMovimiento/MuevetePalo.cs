@@ -16,12 +16,15 @@ public class MuevetePalo : MonoBehaviour
     private Rigidbody2D paloRb;
 
 
+    [SerializeField]
+    Vector2 positionPalo;
+
     private void Start()
     {
 
 
         paloRb = GetComponent<Rigidbody2D>();
-
+        positionPalo = transform.localPosition;
 
     }
 
@@ -50,6 +53,10 @@ public class MuevetePalo : MonoBehaviour
 
 
 
+    }
+    public void ResetPlayer()
+    {
+        transform.position = positionPalo;
     }
 
 

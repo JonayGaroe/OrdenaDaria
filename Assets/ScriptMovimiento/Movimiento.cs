@@ -18,7 +18,7 @@ public class Movimiento : MonoBehaviour
     public TextMeshProUGUI bloquesFinalText;
     public TextMeshProUGUI bloquesText;
     //  public AudioClip Bloquefx;
-    [SerializeField]
+      [SerializeField]
     TextMeshProUGUI ganar;
 
 
@@ -36,19 +36,19 @@ public class Movimiento : MonoBehaviour
     void Update()
     {
         tiempoDePartida = tiempoDePartida + Time.deltaTime;
-        ganar.text = tiempoDePartida.ToString();
+      //  ganar.text = tiempoDePartida.ToString();
 
 
 
         if (bloquesCount == 0)
         { 
 
-            Time.timeScale = 0;
 
             float minutos = Mathf.FloorToInt(tiempoDePartida / 60F);
             float segundos = Mathf.FloorToInt(tiempoDePartida % 60F);
             ganar.text = string.Format("{0:00}:{1:00}", minutos, segundos);
-        
+            ganar.text = tiempoDePartida.ToString();
+            Time.timeScale = 0;
 
 
         }
@@ -68,9 +68,11 @@ public class Movimiento : MonoBehaviour
     {
         if (other.CompareTag("bloquesss"))
         {
+
             bloquesCount = bloquesCount - 1;
             Debug.Log("He tocado el Bloque " + bloquesCount);
             other.gameObject.SetActive(false);
+
 
         }
         if (other.tag.Contains("bloquesss"))

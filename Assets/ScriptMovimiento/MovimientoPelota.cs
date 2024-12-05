@@ -17,7 +17,10 @@ public class MovimientoPelota : MonoBehaviour
    // [SerializeField]
     //private float velocityMultiplier = 1.1f;
 
-    private Rigidbody2D ballRb;
+    public Rigidbody2D ballRb;
+
+   
+    public Vector2 posicionPelota;
 
     void Start()
     {
@@ -25,7 +28,7 @@ public class MovimientoPelota : MonoBehaviour
 
         // rb = GetComponent<Rigidbody2D>();
         //Launch();
-
+        posicionPelota=transform.position;
         
     }
     void Update()

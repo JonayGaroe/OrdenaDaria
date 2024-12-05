@@ -27,25 +27,32 @@ public class PartidaPerdida : MonoBehaviour
 
 
 
-    private void Update()
-    {
-        vidasText.text ="" + vidas;
+     void Update()
+     {
     
+        vidasText.text ="" + vidas;
+        float minutos = Mathf.FloorToInt(tiempoDePartida / 60F);
+        float segundos = Mathf.FloorToInt(tiempoDePartida % 60F);
+        //tiempoDePartida = tiempoDePartida + Time.deltaTime;
+
         if (estaJugando == true)
         {
+         
+            //tiempoDePartida = tiempoDePartida + Time.deltaTime;
+
+           // estaJugando = false;
 
             tiempoDePartida = tiempoDePartida + Time.deltaTime;
-            textLabelTime.text = tiempoDePartida.ToString();
-            estaJugando = false;
             // ganar.text = tiempoDePartida.ToString();
+            textLabelTime.text = tiempoDePartida.ToString();
+            textLabelTime.text = string.Format("{0:00}:{1:00}", minutos, segundos);
 
+         
 
-
-            
 
         }
-  
-        
+
+    
 
 
 
@@ -60,21 +67,34 @@ public class PartidaPerdida : MonoBehaviour
         if (other.tag == "Player")
         {
 
-            vidas--;
+           // vidas--;
+            vidas--; // Resta una vida
+
+            Debug.Log("Vidas restantes: " + vidas);
+            FindObjectOfType<MuevetePalo>().ResetPlayer();
+            FindObjectOfType<MovimientoPelota>().transform.parent = FindObjectOfType<MuevetePalo>().transform;
+            FindObjectOfType<MovimientoPelota>().transform.position = FindObjectOfType<MovimientoPelota>().posicionPelota;
+            FindObjectOfType<MovimientoPelota>().ballRb.velocity = Vector2.zero;
+            FindObjectOfType<MovimientoPelota>().transform.parent = FindObjectOfType<MuevetePalo>().transform;
+
+
+
+
 
             if (vidas <= 0)
             {
-                Time.timeScale = 0;
-              float minutos = Mathf.FloorToInt(tiempoDePartida / 60F);
-              float segundos = Mathf.FloorToInt(tiempoDePartida % 60F);
+
+             // float minutos = Mathf.FloorToInt(tiempoDePartida / 60F);
+             // float segundos = Mathf.FloorToInt(tiempoDePartida % 60F);
 
 
               Debug.Log("Has Perdido");
               pantallaFinal.SetActive(true);
               other.GetComponent<Movimiento>().enabled = false;
               estaJugando = false;
-              textLabelTime.text = string.Format("{0:00}:{1:00}", minutos, segundos);
-           
+              Time.timeScale = 0;
+                // textLabelTime.text = string.Format("{0:00}:{1:00}", minutos, segundos);
+
 
 
             }

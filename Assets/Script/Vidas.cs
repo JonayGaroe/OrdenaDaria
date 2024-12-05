@@ -32,13 +32,16 @@ public class VidaManager : MonoBehaviour
             vidas--; // Resta una vida
             
             Debug.Log("Vidas restantes: " + vidas);
-
-
+            FindObjectOfType<MuevetePalo>().ResetPlayer();
+            FindObjectOfType<MovimientoPelota>().transform.parent = FindObjectOfType<MuevetePalo>().transform;
+            FindObjectOfType<MovimientoPelota>().transform.position = FindObjectOfType<MovimientoPelota>().posicionPelota;
+            FindObjectOfType<MovimientoPelota>().ballRb.velocity = Vector2.zero;
+            gameObject.transform.parent = FindObjectOfType<MuevetePalo>().transform;
 
             // Actualiza el texto de la UI (si existe)
             if (vidasText != null)
             {
-
+                
 
 
                 vidasText.text = "Vidas: " + vidas;

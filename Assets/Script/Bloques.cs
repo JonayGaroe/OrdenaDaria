@@ -93,9 +93,10 @@ public class Bloques : MonoBehaviour
            
 
             CanvasGanar.SetActive(true);
+
             //Time.timeScale = 0;
 
-        }
+       }
         /*
         if(CanvasGanar.activeSelf)
         {
